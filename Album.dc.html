@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>История для Никиты</title>
+    <script src="./support.js"></script>
+</head>
+<body>
+    <x-dc>
+        <helmet>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Conthrax:wght@400;600;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+            <style>
+                html, body {
+                    margin: 0;
+                    padding: 0;
+                    background: #08080a;
+                    color: #e8e8e8;
+                    height: 100%;
+                    overflow: hidden;
+                }
+
+                body {
+                    font-family: 'Inter', system-ui, sans-serif;
+                }
+
+                .carbon-bg {
+                    background-color: #0a0a0c;
+                    background-image: linear-gradient(45deg, #0d0d10 25%, transparent 25%, transparent 75%, #0d0d10 75%), linear-gradient(45deg, #0d0d10 25%, transparent 25%, transparent 75%, #0d0d10 75%);
+                    background-size: 6px 6px;
+                    background-position: 0 0, 3px 3px;
+                    position: relative;
+                }
+
+                    .carbon-bg::before {
+                        content: '';
+                        position: absolute;
+                        inset: 0;
+                        pointer-events: none;
+                        background: radial-gradient(ellipse at 50% 0%, rgba(255,215,0,0.04) 0%, transparent 60%), radial-gradient(ellipse at 50% 100%, rgba(213,0,28,0.05) 0%, transparent 60%);
+                    }
+
+                @keyframes fadeUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(40px);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: none;
+                    }
+                }
+
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+
+                    to {
+                        opacity: 1;
+                    }
+                }
+
+                @keyframes zoomIn {
+                    from {
+                        opacity: 0;
+                        transform: scale(1.06);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }
+
+                @keyframes pulseYellow {
+                    0%,100% {
+                        box-shadow: 0 0 0 0 rgba(255,215,0,0.5);
+                    }
+
+                    50% {
+                        box-shadow: 0 0 0 16px rgba(255,215,0,0);
+                    }
+                }
+
+                @keyframes revBar {
+                    from {
+                        transform: scaleX(0);
+                    }
+
+                    to {
+                        transform: scaleX(1);
+                    }
+                }
+
+                .card-carousel {
+                    display: flex;
+                    overflow-x: auto;
+                    scroll-snap-type: x mandatory;
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                    height: 100%;
+                }
+
+                    .card-carousel::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    .card-carousel > * {
+                        scroll-snap-align: center;
+                        flex: 0 0 100%;
+                    }
+
+                .font-race {
+                    font-family: 'Conthrax', sans-serif;
+                    letter-spacing: 0.04em;
+                    text-transform: uppercase;
+                }
+
+                .btn-drs {
+                    font-family: 'Conthrax', sans-serif;
+                    font-size: 20px;
+                    font-weight: 600;
+                    letter-spacing: 0.18em;
+                    text-transform: uppercase;
+                    padding: 22px 56px;
+                    background: #ffd400;
+                    color: #08080a;
+                    border: none;
+                    cursor: pointer;
+                    clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+                    animation: pulseYellow 2s ease-in-out infinite;
+                    transition: transform 0.12s ease, background 0.15s ease;
+                }
+
+                    .btn-drs:hover {
+                        background: #ffe94d;
+                        transform: translateY(-2px);
+                    }
+
+                    .btn-drs:active {
+                        transform: translateY(0);
+                    }
+
+                .aero-panel {
+                    position: relative;
+                    background: linear-gradient(160deg, #14141a 0%, #0d0d10 100%);
+                    border: 1px solid #25252d;
+                    clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
+                }
+
+                    .aero-panel::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 24px;
+                        height: 2px;
+                        background: linear-gradient(90deg, #ffd400, transparent);
+                    }
+
+                .photo-gt3 {
+                    position: relative;
+                    overflow: hidden;
+                    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+                    background: #0a0a0c;
+                    box-shadow: 0 24px 64px rgba(0,0,0,0.8);
+                    width: 100%;
+                    height: 100%;
+                }
+
+                    .photo-gt3 img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        display: block;
+                        animation: zoomIn 1s ease both;
+                    }
+
+                    .photo-gt3::after {
+                        content: '';
+                        position: absolute;
+                        inset: 0;
+                        pointer-events: none;
+                        background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.7) 100%);
+                    }
+
+                .rev-segment {
+                    width: 22px;
+                    height: 8px;
+                    background: #25252d;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    border: none;
+                    padding: 0;
+                    clip-path: polygon(3px 0, 100% 0, calc(100% - 3px) 100%, 0 100%);
+                    flex: none;
+                }
+
+                    .rev-segment.active {
+                        background: #ffd400;
+                        width: 34px;
+                    }
+
+                    .rev-segment:hover {
+                        background: #3a3a44;
+                    }
+
+                    .rev-segment.active:hover {
+                        background: #ffe94d;
+                    }
+
+                    /* Компактные сегменты, когда фото много */
+                    .rev-segment.compact {
+                        width: 12px;
+                    }
+
+                        .rev-segment.compact.active {
+                            width: 22px;
+                        }
+
+                .nav-gt3 {
+                    font-family: 'Conthrax', sans-serif;
+                    font-size: 15px;
+                    letter-spacing: 0.18em;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    background: transparent;
+                    color: #e8e8e8;
+                    border: 1px solid #25252d;
+                    padding: 18px 32px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+                }
+
+                    .nav-gt3:hover {
+                        background: #ffd400;
+                        border-color: #ffd400;
+                        color: #08080a;
+                    }
+
+                .nav-side {
+                    flex: none;
+                    width: 56px;
+                    height: 56px;
+                    padding: 0;
+                    font-size: 22px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .ch-label {
+                    font-family: 'Conthrax', sans-serif;
+                    font-size: 12px;
+                    letter-spacing: 0.3em;
+                    text-transform: uppercase;
+                }
+
+                .ch-yellow .ch-label {
+                    color: #ffd400;
+                }
+
+                .ch-red .ch-label {
+                    color: #d5001c;
+                }
+
+                .ch-white .ch-label {
+                    color: #e8e8e8;
+                }
+
+                .ch-carbon .ch-label {
+                    color: #6a6a72;
+                }
+
+                .ch-yellow .rev-segment.active {
+                    background: #ffd400;
+                }
+
+                .ch-red .rev-segment.active {
+                    background: #d5001c;
+                }
+
+                .ch-white .rev-segment.active {
+                    background: #e8e8e8;
+                }
+
+                .ch-carbon .rev-segment.active {
+                    background: #6a6a72;
+                }
+
+                .ch-yellow .aero-panel::before {
+                    background: linear-gradient(90deg, #ffd400, transparent);
+                }
+
+                .ch-red .aero-panel::before {
+                    background: linear-gradient(90deg, #d5001c, transparent);
+                }
+
+                .ch-white .aero-panel::before {
+                    background: linear-gradient(90deg, #e8e8e8, transparent);
+                }
+
+                .ch-carbon .aero-panel::before {
+                    background: linear-gradient(90deg, #6a6a72, transparent);
+                }
+
+                .ch-title {
+                    font-family: 'Conthrax', sans-serif;
+                    font-weight: 700;
+                    font-size: clamp(36px, 5.5vw, 76px);
+                    line-height: 0.95;
+                    text-transform: uppercase;
+                    letter-spacing: -0.01em;
+                    margin: 16px 0 0;
+                    color: #f5f5f5;
+                }
+
+                .ch-text {
+                    font-size: clamp(15px, 1.3vw, 19px);
+                    line-height: 1.65;
+                    color: #a0a0a8;
+                    max-width: 64ch;
+                    margin: 24px 0 0;
+                }
+
+                .audio-badge {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    z-index: 50;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 10px 14px;
+                    background: rgba(13,13,16,0.9);
+                    border: 1px solid #25252d;
+                    cursor: pointer;
+                    font-family: 'Conthrax', sans-serif;
+                    font-size: 11px;
+                    letter-spacing: 0.15em;
+                    text-transform: uppercase;
+                    color: #a0a0a8;
+                    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+                    transition: all 0.2s ease;
+                }
+
+                    .audio-badge:hover {
+                        border-color: #ffd400;
+                        color: #ffd400;
+                    }
+
+                    .audio-badge .dot-live {
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        background: #ffd400;
+                        animation: pulseYellow 1.5s ease-in-out infinite;
+                    }
+
+                .scene {
+                    position: fixed;
+                    inset: 0;
+                    display: flex;
+                    flex-direction: column;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                }
+            </style>
+        </helmet>
+
+        <!-- ═══════════════════ СТАРТ ═══════════════════ -->
+        <sc-if value="{{ isStart }}" hint-placeholder-val="{{ true }}">
+            <div class="carbon-bg scene" style="align-items: center; justify-content: center; padding: 40px 24px; text-align: center">
+                <div class="ch-label" style="color: #ffd400; animation: fadeIn 1s ease both">История в кадрах</div>
+                <h1 class="font-race" style="font-weight: 700; font-size: clamp(52px, 9vw, 130px); line-height: 0.88; margin: 24px 0 0; letter-spacing: -0.02em; color: #f5f5f5; animation: fadeUp 1s ease 0.15s both">
+                   С днем рождения.
+                </h1>
+                <div style="width: min(480px, 85vw); height: 3px; background: linear-gradient(90deg, transparent, #ffd400, transparent); margin: 36px 0; animation: fadeIn 1s ease 0.4s both"></div>
+                <p style="font-size: 17px; line-height: 1.65; color: #a0a0a8; max-width: 50ch; margin: 0; animation: fadeIn 1s ease 0.6s both">
+                    Я думаю тебе понравится.
+                </p>
+                <button onClick="{{ startStory }}" class="btn-drs" style="margin-top: 60px">Начать</button>
+                <div style="margin-top: 30px; font-family: 'Conthrax', sans-serif; font-size: 11px; letter-spacing: 0.25em; color: #4a4a52; text-transform: uppercase">
+                    Weissach · Sound on · Race mode
+                </div>
+            </div>
+        </sc-if>
+
+        <!-- ═══════════════════ ПРЕДЫСТОРИЯ ═══════════════════ -->
+        <sc-if value="{{ isIntro }}" hint-placeholder-val="{{ false }}">
+            <div class="{{ chapter.theme }} scene" style="align-items: center; justify-content: center; padding: 40px 48px">
+                <div class="carbon-bg" style="position: absolute; inset: 0; z-index: 0"></div>
+                <div style="position: relative; z-index: 1; max-width: 920px; width: 100%; animation: fadeUp 0.8s ease both">
+                    <div style="display: flex; align-items: center; gap: 18px">
+                        <span class="ch-label">{{ chapter.label }}</span>
+                        <span style="flex: 1; height: 1px; background: #1c1c22"></span>
+                        <span style="font-family: 'Conthrax', sans-serif; font-size: 11px; letter-spacing: 0.2em; color: #4a4a52">RND {{ chapter.number }}/{{ totalChaptersPadded }}</span>
+                    </div>
+                    <h2 class="ch-title">{{ chapter.title }}</h2>
+                    <div style="width: 180px; height: 3px; background: #ffd400; margin: 24px 0; animation: revBar 0.8s ease both"></div>
+                    <p class="ch-text" style="font-size: 20px; max-width: 66ch">{{ chapter.text }}</p>
+
+                    <div style="margin-top: 60px">
+                        <button onClick="{{ goToPhotos }}" class="nav-gt3" style="font-size: 17px; padding: 22px 40px">
+                            Перейти к фото →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </sc-if>
+
+        <!-- ═══════════════════ ФОТО ═══════════════════ -->
+        <sc-if value="{{ isPhotos }}" hint-placeholder-val="{{ false }}">
+            <div class="{{ chapter.theme }} scene" style="padding: 16px 24px">
+                <div class="carbon-bg" style="position: absolute; inset: 0; z-index: 0"></div>
+
+                <div style="position: relative; z-index: 1; width: 100%; height: 100%; display: flex; flex-direction: column; gap: 10px; animation: fadeIn 0.6s ease both">
+
+                    <!-- Заголовок главы -->
+                    <div style="flex: none; display: flex; align-items: center; gap: 16px; padding: 0 6px">
+                        <span class="ch-label" style="flex: none">{{ chapter.label }}</span>
+                        <span class="ch-title" style="font-size: clamp(18px, 2vw, 26px); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0">{{ chapter.title }}</span>
+                        <span style="flex: 1; height: 1px; background: #1c1c22; min-width: 20px"></span>
+                        <span style="font-family: 'Conthrax', sans-serif; font-size: 11px; letter-spacing: 0.2em; color: #4a4a52; white-space: nowrap; flex: none">
+                            FRAME {{ currentFramePadded }}/{{ chapter.photoCountPadded }}
+                        </span>
+                    </div>
+
+                    <!-- Карусель + стрелки -->
+                    <div style="flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; gap: 14px">
+
+                        <button onClick="{{ prevPhoto }}" class="nav-gt3 nav-side" aria-label="Назад">←</button>
+
+                        <!-- Фото-панель -->
+                        <div class="aero-panel" style="
+              max-width: 1600px;
+              width: 100%;
+              max-height: 68vh;
+              height: 100%;
+              padding: 14px;
+              display: flex; flex-direction: column; gap: 10px;
+              box-sizing: border-box;
+            ">
+
+                            <div style="flex: 1; min-height: 0; position: relative">
+                                <div class="card-carousel" ref="{{ carouselRef }}">
+
+                                    <!-- Все фото этой главы -->
+                                    <sc-for list="{{ photos }}" as="ph" hint-placeholder-count="4">
+                                        <div style="padding: 0 6px; box-sizing: border-box; height: 100%">
+                                            <div class="photo-gt3">
+                                                <img src="{{ ph.src }}" alt="{{ ph.alt }}" loading="lazy">
+                                            </div>
+                                        </div>
+                                    </sc-for>
+
+                                    <!-- Последний слайд: кнопка «Дальше» -->
+                                    <div style="padding: 0 6px; box-sizing: border-box; height: 100%; display: flex; align-items: center; justify-content: center">
+                                        <div style="text-align: center; max-width: 90%">
+                                            <div style="font-family: 'Conthrax', sans-serif; font-size: 12px; letter-spacing: 0.3em; color: #6a6a72; text-transform: uppercase; margin-bottom: 20px">
+                                                Конец главы {{ chapter.number }}
+                                            </div>
+                                            <button onClick="{{ goNext }}" class="btn-drs" style="font-size: 17px; padding: 20px 46px">
+                                                {{ nextLabel }}
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Индикаторы: N фото + 1 под кнопку -->
+                            <div style="flex: none; display: flex; justify-content: center; gap: 5px; align-items: center; overflow-x: auto; scrollbar-width: none">
+                                <sc-for list="{{ dots }}" as="d" hint-placeholder-count="6">
+                                    <button onClick="{{ d.onClick }}" class="rev-segment {{ d.cls }}"></button>
+                                </sc-for>
+                            </div>
+
+                        </div>
+
+                        <button onClick="{{ nextPhoto }}" class="nav-gt3 nav-side" aria-label="Вперёд">→</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </sc-if>
+
+        <!-- ═══════════════════ ФИНАЛ ═══════════════════ -->
+        <sc-if value="{{ isFinal }}" hint-placeholder-val="{{ false }}">
+            <div class="scene" style="align-items: center; justify-content: center; padding: 40px 48px; text-align: center">
+                <div class="carbon-bg" style="position: absolute; inset: 0; z-index: 0"></div>
+                <div style="position: relative; z-index: 1; max-width: 900px; animation: fadeUp 0.8s ease both">
+                    <div class="ch-label" style="color: #ffd400">Finish Line</div>
+                    <h1 class="font-race" style="font-weight: 700; font-size: clamp(44px, 7.5vw, 100px); line-height: 0.92; margin: 28px 0 0; color: #f5f5f5">
+                        С днём<br>рождения,<br><span style="color: #ffd400">Спикуша!</span>
+                    </h1>
+                    <div style="width: 180px; height: 3px; background: #ffd400; margin: 44px auto"></div>
+                    <p style="font-size: 19px; line-height: 1.7; color: #a0a0a8; max-width: 58ch; margin: 0 auto">
+                        {{ finalText }}
+                    </p>
+                    <div style="margin-top: 64px; font-family: 'Conthrax', sans-serif; font-size: 11px; letter-spacing: 0.3em; color: #4a4a52; text-transform: uppercase">
+                        {{ dateLabel }} · Weissach Edition
+                    </div>
+                    <button onClick="{{ restart }}" class="nav-gt3" style="margin-top: 44px">↻ Race Again</button>
+                </div>
+            </div>
+        </sc-if>
+
+        <!-- ═══════════════════ ЗВУК ═══════════════════ -->
+        <sc-if value="{{ showAudioBadge }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ toggleMute }}" class="audio-badge">
+                <span class="dot-live" style="display: {{ muteDotDisplay }}"></span>
+                <span>{{ audioBadgeText }}</span>
+            </button>
+        </sc-if>
+
+    </x-dc>
+
+    <script type="text/x-dc" data-dc-script data-props="{&quot;name&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Никита&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;dateLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;2026&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;finalText&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Желаю чтобы все что ты загадал исполнилось. Чтобы здоровья было больше и конечно же чтобы с любимкой все было хорошо и все получилось. Совет вам да любовь!.С днём рождения!&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+        const START_TRACK = 'audio/01.mp3';
+        const FINAL_TRACK = 'audio/12.mp3';   // можно свой, если 11 треков
+
+        // ═══════════════════════════════════════════════
+        // 11 ГЛАВ — количество фото = длина массива
+        // ═══════════════════════════════════════════════
+        // helper: ['01','02',...,'12']
+        function range(n) {
+          return Array.from({ length: n }, (_, i) => String(i + 1).padStart(2, '0'));
+        }
+
+        const CHAPTERS = [
+          {
+            number: '01', theme: 'ch-yellow', label: 'Lap 01',
+            title: 'Первая встреча.',
+            intro: 'Все началось с того что мы познакомились в YTNC. Ты который попал сюда по блату и я который прошел все тяготы набора сюда). Но тем немение наше общение началось тут.',
+            photos: range(5),
+            track: 'audio/01.mp3'
+          },
+          {
+            number: '02', theme: 'ch-red', label: 'Lap 02',
+            title: 'Первые контракты, новый год и МЗ.',
+            intro: 'Тут мы уже круче, были вип печеньками, перешли в скиллеры и начали работать в МЗ. Писали свои сс-ки на персонажа и вообще все только начаналось.',
+            photos: range(12),
+            track: 'audio/02.mp3'
+          },
+          {
+            number: '03', theme: 'ch-white', label: 'Lap 03',
+            title: 'Фото вместе.',
+            intro: 'Теперь уйдем от истории и перейдем к повседневности. Тут собраны все наши совместные фото, от самого начала до конца но не конца дружбы).',
+            photos: range(14),
+            track: 'audio/03.mp3'
+          },
+          {
+            number: '04', theme: 'ch-carbon', label: 'Lap 04',
+            title: 'Автопарк котопса.',
+            intro: 'Наши машины которые мы так любили, номера и история которая остсанется дальше.',
+            photos: range(16),
+            track: 'audio/04.mp3'
+          },
+          {
+            number: '05', theme: 'ch-yellow', label: 'Lap 05',
+            title: 'Тише едешь больше кринжа.',
+            intro: 'Кринж в полном его проявлении от пса и конечно не забудим про фамилию Kringe(не ну Porsche лучше).',
+            photos: range(4),
+            track: 'audio/05.mp3'
+          },
+          {
+            number: '06', theme: 'ch-red', label: 'Lap 06',
+            title: 'Сборник фото на паспорт пса.',
+            intro: 'Немногочисленные фотоотчеты о внешнем ввиде пса, и этот свитер все началось тут.',
+            photos: range(9),
+            track: 'audio/06.mp3'
+          },
+          {
+            number: '07', theme: 'ch-white', label: 'Lap 07',
+            title: 'Я.',
+            intro: 'Н и как же без меня, я любимый тут во всей красе.Решил похвастаться тем что был Д хедом ПАИ и вообще так-то в прошлом Зам Зам и помощник Зама YTNС(да да и это все я).',
+            photos: range(9),
+            track: 'audio/07.mp3'
+          },
+          {
+            number: '08', theme: 'ch-carbon', label: 'Lap 08',
+            title: 'Баны и обнуления.',
+            intro: 'Бан за слишком много слов сказаных в сторону админов и не забываем про обнуление за рыбалку(наживится хотел на честной рыбе).А ну и самое главное титут за самооткид на ЛНС.',
+            photos: range(1),
+            track: 'audio/08.mp3'
+          },
+          {
+            number: '09', theme: 'ch-yellow', label: 'Lap 09',
+            title: 'Совместный отдых.',
+            intro: 'Отдых от насущных дел на природе в двоем на воздухе.Без духаты.',
+            photos: range(2),
+            track: 'audio/09.mp3'
+          },
+          {
+            number: '10', theme: 'ch-red', label: 'Lap 10',
+            title: 'Странствия котопса.',
+            intro: 'Пес смог поднятся выше к небу но упал.Смог попасть на билборд став рядом с качком ну и кот которого решили сжечь за мяту.',
+            photos: range(3),
+            track: 'audio/10.mp3'
+          },
+          {
+            number: '11', theme: 'ch-white', label: 'Lap 11',
+            title: 'Рамки рп.',
+            intro: 'Ну и к заключению.Общение вышло дальше чем рп и вот мы тут.Дипломы права и конечно же старая записка которая будет тут.',
+            photos: range(5),
+            track: 'audio/11.mp3'
+          }
+        ];
+
+        class Component extends DCLogic {
+          state = { stage: 'start', chapterIdx: 0, muted: false };
+
+          VOLUME = 0.10;
+          _audio = null;
+          _activeTrack = null;
+          _carouselIdx = 0;
+
+          // ═══════════ МУЗЫКА ═══════════
+          playTrack = (src) => {
+            if (!src) return;
+            if (!this._audio) {
+              const a = document.createElement('audio');
+              a.style.display = 'none';
+              a.volume = this.VOLUME;
+              a.loop = true;
+              document.body.appendChild(a);
+              this._audio = a;
+            }
+            if (this._activeTrack === src) return;
+            this._activeTrack = src;
+            this._audio.src = src;
+            this._audio.volume = this.VOLUME;
+            this._audio.play()
+              .then(() => console.log('[audio] playing:', src))
+              .catch((e) => console.warn('[audio] play failed:', e, '— src:', src));
+          };
+
+          toggleMute = () => {
+            if (!this._audio) return;
+            const m = !this.state.muted;
+            this._audio.muted = m;
+            this.setState({ muted: m });
+          };
+
+          // ═══════════ ПЕРЕХОДЫ ═══════════
+          startStory = () => {
+            this.playTrack(START_TRACK);
+            this.setState({ stage: 'intro', chapterIdx: 0 });
+          };
+
+          goToPhotos = () => {
+            this._carouselIdx = 0;
+            this.setState({ stage: 'photos' });
+            setTimeout(() => {
+              if (this._carousel) this._carousel.scrollTo({ left: 0 });
+            }, 60);
+          };
+
+          goNext = () => {
+            const next = this.state.chapterIdx + 1;
+            if (next < CHAPTERS.length) {
+              this.playTrack(CHAPTERS[next].track);
+              this.setState({ stage: 'intro', chapterIdx: next });
+            } else {
+              this.playTrack(FINAL_TRACK);
+              this.setState({ stage: 'final' });
+            }
+            this._carouselIdx = 0;
+          };
+
+          restart = () => {
+            this.playTrack(START_TRACK);
+            this.setState({ stage: 'start', chapterIdx: 0 });
+            this._carouselIdx = 0;
+          };
+
+          // ═══════════ КАРУСЕЛЬ ═══════════
+          scrollCarousel = (dir) => {
+            const el = this._carousel;
+            if (!el) return;
+            const total = CHAPTERS[this.state.chapterIdx].photos.length + 1; // +1 слайд с кнопкой
+            const w = el.clientWidth;
+            const next = Math.max(0, Math.min(total - 1, this._carouselIdx + dir));
+            this._carouselIdx = next;
+            el.scrollTo({ left: w * next, behavior: 'smooth' });
+            this.forceUpdate();
+          };
+
+          jumpTo = (i) => {
+            const el = this._carousel;
+            if (!el) return;
+            const w = el.clientWidth;
+            this._carouselIdx = i;
+            el.scrollTo({ left: w * i, behavior: 'smooth' });
+            this.forceUpdate();
+          };
+
+          // ═══════════ РЕНДЕР ═══════════
+          renderVals() {
+            const stage = this.state.stage;
+            const idx = this.state.chapterIdx;
+            const ch = CHAPTERS[idx] || CHAPTERS[0];
+
+            const folder = 'photos/chapter-' + ch.number;
+            const photoCount = ch.photos.length;
+            const photos = ch.photos.map((num) => ({
+              num, src: folder + '/' + num + '.png', alt: 'Фото ' + num
+            }));
+
+            // Индикаторы: каждое фото + 1 под кнопку
+            const manyPhotos = photoCount > 8;
+            const dots = ch.photos.map((_, j) => ({
+              cls: ((this._carouselIdx || 0) === j ? 'active' : '') + (manyPhotos ? ' compact' : ''),
+              onClick: () => this.jumpTo(j)
+            }));
+            dots.push({
+              cls: (this._carouselIdx === photoCount ? 'active' : '') + (manyPhotos ? ' compact' : ''),
+              onClick: () => this.jumpTo(photoCount)
+            });
+
+            const isLastChapter = idx === CHAPTERS.length - 1;
+            const nextLabel = isLastChapter
+              ? 'К финалу →'
+              : ('Дальше: Глава ' + CHAPTERS[idx + 1].number + ' →');
+
+            // Сколько всего фото во всём альбоме
+            const totalPhotos = CHAPTERS.reduce((sum, c) => sum + c.photos.length, 0);
+
+            // Текущий кадр (1-based). Если пользователь на слайде-кнопке — показываем последний кадр
+            const frameNow = Math.min((this._carouselIdx || 0) + 1, photoCount);
+
+            return {
+              isStart: stage === 'start',
+              isIntro: stage === 'intro',
+              isPhotos: stage === 'photos',
+              isFinal: stage === 'final',
+
+              chapter: {
+                ...ch,
+                text: ch.intro,
+                photoCount,
+                photoCountPadded: String(photoCount).padStart(2, '0')
+              },
+
+              // Счётчик
+              currentFramePadded: String(frameNow).padStart(2, '0'),
+              totalChapters: CHAPTERS.length,
+              totalChaptersPadded: String(CHAPTERS.length).padStart(2, '0'),
+              totalPhotos,
+
+              photos,
+              dots,
+              carouselRef: (el) => {
+                this._carousel = el;
+                if (el && !el._wired) {
+                  el._wired = true;
+                  el.addEventListener('scroll', () => {
+                    const w = el.clientWidth || 1;
+                    const i = Math.round(el.scrollLeft / w);
+                    if (this._carouselIdx !== i) {
+                      this._carouselIdx = i;
+                      this.forceUpdate();
+                    }
+                  }, { passive: true });
+                }
+              },
+
+              startStory: this.startStory,
+              goToPhotos: this.goToPhotos,
+              goNext: this.goNext,
+              nextLabel,
+              prevPhoto: () => this.scrollCarousel(-1),
+              nextPhoto: () => this.scrollCarousel(+1),
+              restart: this.restart,
+              toggleMute: this.toggleMute,
+
+              showAudioBadge: stage !== 'start',
+              audioBadgeText: this.state.muted ? 'Muted' : 'Sound on',
+              muteDotDisplay: this.state.muted ? 'none' : 'block',
+
+              name: this.props.name ?? 'Никита',
+              dateLabel: this.props.dateLabel ?? '2026',
+              finalText: this.props.finalText ?? 'Пусть впереди будет много дорог — ровных и не очень. Главное, чтобы рядом были те, кто едет с тобой. С днём рождения!'
+            };
+          }
+        }
+    </script>
+</body>
+</html>
