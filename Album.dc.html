@@ -43,57 +43,28 @@
                     }
 
                 @keyframes fadeUp {
-                    from {
-                        opacity: 0;
-                        transform: translateY(40px);
-                    }
-
-                    to {
-                        opacity: 1;
-                        transform: none;
-                    }
+                    from { opacity: 0; transform: translateY(40px); }
+                    to   { opacity: 1; transform: none; }
                 }
 
                 @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                    }
-
-                    to {
-                        opacity: 1;
-                    }
+                    from { opacity: 0; }
+                    to   { opacity: 1; }
                 }
 
                 @keyframes zoomIn {
-                    from {
-                        opacity: 0;
-                        transform: scale(1.06);
-                    }
-
-                    to {
-                        opacity: 1;
-                        transform: scale(1);
-                    }
+                    from { opacity: 0; transform: scale(1.06); }
+                    to   { opacity: 1; transform: scale(1); }
                 }
 
                 @keyframes pulseYellow {
-                    0%,100% {
-                        box-shadow: 0 0 0 0 rgba(255,215,0,0.5);
-                    }
-
-                    50% {
-                        box-shadow: 0 0 0 16px rgba(255,215,0,0);
-                    }
+                    0%,100% { box-shadow: 0 0 0 0 rgba(255,215,0,0.5); }
+                    50%     { box-shadow: 0 0 0 16px rgba(255,215,0,0); }
                 }
 
                 @keyframes revBar {
-                    from {
-                        transform: scaleX(0);
-                    }
-
-                    to {
-                        transform: scaleX(1);
-                    }
+                    from { transform: scaleX(0); }
+                    to   { transform: scaleX(1); }
                 }
 
                 .card-carousel {
@@ -105,9 +76,7 @@
                     height: 100%;
                 }
 
-                    .card-carousel::-webkit-scrollbar {
-                        display: none;
-                    }
+                    .card-carousel::-webkit-scrollbar { display: none; }
 
                     .card-carousel > * {
                         scroll-snap-align: center;
@@ -136,14 +105,8 @@
                     transition: transform 0.12s ease, background 0.15s ease;
                 }
 
-                    .btn-drs:hover {
-                        background: #ffe94d;
-                        transform: translateY(-2px);
-                    }
-
-                    .btn-drs:active {
-                        transform: translateY(0);
-                    }
+                    .btn-drs:hover  { background: #ffe94d; transform: translateY(-2px); }
+                    .btn-drs:active { transform: translateY(0); }
 
                 .aero-panel {
                     position: relative;
@@ -200,27 +163,12 @@
                     flex: none;
                 }
 
-                    .rev-segment.active {
-                        background: #ffd400;
-                        width: 34px;
-                    }
+                    .rev-segment.active { background: #ffd400; width: 34px; }
+                    .rev-segment:hover  { background: #3a3a44; }
+                    .rev-segment.active:hover { background: #ffe94d; }
 
-                    .rev-segment:hover {
-                        background: #3a3a44;
-                    }
-
-                    .rev-segment.active:hover {
-                        background: #ffe94d;
-                    }
-
-                    /* Компактные сегменты, когда фото много */
-                    .rev-segment.compact {
-                        width: 12px;
-                    }
-
-                        .rev-segment.compact.active {
-                            width: 22px;
-                        }
+                    .rev-segment.compact        { width: 12px; }
+                    .rev-segment.compact.active { width: 22px; }
 
                 .nav-gt3 {
                     font-family: 'Conthrax', sans-serif;
@@ -261,53 +209,20 @@
                     text-transform: uppercase;
                 }
 
-                .ch-yellow .ch-label {
-                    color: #ffd400;
-                }
+                    .ch-yellow .ch-label { color: #ffd400; }
+                    .ch-red    .ch-label { color: #d5001c; }
+                    .ch-white  .ch-label { color: #e8e8e8; }
+                    .ch-carbon .ch-label { color: #6a6a72; }
 
-                .ch-red .ch-label {
-                    color: #d5001c;
-                }
+                    .ch-yellow .rev-segment.active { background: #ffd400; }
+                    .ch-red    .rev-segment.active { background: #d5001c; }
+                    .ch-white  .rev-segment.active { background: #e8e8e8; }
+                    .ch-carbon .rev-segment.active { background: #6a6a72; }
 
-                .ch-white .ch-label {
-                    color: #e8e8e8;
-                }
-
-                .ch-carbon .ch-label {
-                    color: #6a6a72;
-                }
-
-                .ch-yellow .rev-segment.active {
-                    background: #ffd400;
-                }
-
-                .ch-red .rev-segment.active {
-                    background: #d5001c;
-                }
-
-                .ch-white .rev-segment.active {
-                    background: #e8e8e8;
-                }
-
-                .ch-carbon .rev-segment.active {
-                    background: #6a6a72;
-                }
-
-                .ch-yellow .aero-panel::before {
-                    background: linear-gradient(90deg, #ffd400, transparent);
-                }
-
-                .ch-red .aero-panel::before {
-                    background: linear-gradient(90deg, #d5001c, transparent);
-                }
-
-                .ch-white .aero-panel::before {
-                    background: linear-gradient(90deg, #e8e8e8, transparent);
-                }
-
-                .ch-carbon .aero-panel::before {
-                    background: linear-gradient(90deg, #6a6a72, transparent);
-                }
+                    .ch-yellow .aero-panel::before { background: linear-gradient(90deg, #ffd400, transparent); }
+                    .ch-red    .aero-panel::before { background: linear-gradient(90deg, #d5001c, transparent); }
+                    .ch-white  .aero-panel::before { background: linear-gradient(90deg, #e8e8e8, transparent); }
+                    .ch-carbon .aero-panel::before { background: linear-gradient(90deg, #6a6a72, transparent); }
 
                 .ch-title {
                     font-family: 'Conthrax', sans-serif;
@@ -373,7 +288,7 @@
             </style>
         </helmet>
 
-        <!-- ═══════════════════ СТАРТ ═══════════════════ -->
+        <!-- СТАРТ -->
         <sc-if value="{{ isStart }}" hint-placeholder-val="{{ true }}">
             <div class="carbon-bg scene" style="align-items: center; justify-content: center; padding: 40px 24px; text-align: center">
                 <div class="ch-label" style="color: #ffd400; animation: fadeIn 1s ease both">История в кадрах</div>
@@ -391,7 +306,7 @@
             </div>
         </sc-if>
 
-        <!-- ═══════════════════ ПРЕДЫСТОРИЯ ═══════════════════ -->
+        <!-- ПРЕДЫСТОРИЯ -->
         <sc-if value="{{ isIntro }}" hint-placeholder-val="{{ false }}">
             <div class="{{ chapter.theme }} scene" style="align-items: center; justify-content: center; padding: 40px 48px">
                 <div class="carbon-bg" style="position: absolute; inset: 0; z-index: 0"></div>
@@ -414,14 +329,13 @@
             </div>
         </sc-if>
 
-        <!-- ═══════════════════ ФОТО ═══════════════════ -->
+        <!-- ФОТО -->
         <sc-if value="{{ isPhotos }}" hint-placeholder-val="{{ false }}">
             <div class="{{ chapter.theme }} scene" style="padding: 16px 24px">
                 <div class="carbon-bg" style="position: absolute; inset: 0; z-index: 0"></div>
 
                 <div style="position: relative; z-index: 1; width: 100%; height: 100%; display: flex; flex-direction: column; gap: 10px; animation: fadeIn 0.6s ease both">
 
-                    <!-- Заголовок главы -->
                     <div style="flex: none; display: flex; align-items: center; gap: 16px; padding: 0 6px">
                         <span class="ch-label" style="flex: none">{{ chapter.label }}</span>
                         <span class="ch-title" style="font-size: clamp(18px, 2vw, 26px); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0">{{ chapter.title }}</span>
@@ -431,26 +345,23 @@
                         </span>
                     </div>
 
-                    <!-- Карусель + стрелки -->
                     <div style="flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; gap: 14px">
 
                         <button onClick="{{ prevPhoto }}" class="nav-gt3 nav-side" aria-label="Назад">←</button>
 
-                        <!-- Фото-панель -->
                         <div class="aero-panel" style="
-              max-width: 1600px;
-              width: 100%;
-              max-height: 68vh;
-              height: 100%;
-              padding: 14px;
-              display: flex; flex-direction: column; gap: 10px;
-              box-sizing: border-box;
-            ">
+                              max-width: 1600px;
+                              width: 100%;
+                              max-height: 68vh;
+                              height: 100%;
+                              padding: 14px;
+                              display: flex; flex-direction: column; gap: 10px;
+                              box-sizing: border-box;
+                            ">
 
                             <div style="flex: 1; min-height: 0; position: relative">
                                 <div class="card-carousel" ref="{{ carouselRef }}">
 
-                                    <!-- Все фото этой главы -->
                                     <sc-for list="{{ photos }}" as="ph" hint-placeholder-count="4">
                                         <div style="padding: 0 6px; box-sizing: border-box; height: 100%">
                                             <div class="photo-gt3">
@@ -459,7 +370,6 @@
                                         </div>
                                     </sc-for>
 
-                                    <!-- Последний слайд: кнопка «Дальше» -->
                                     <div style="padding: 0 6px; box-sizing: border-box; height: 100%; display: flex; align-items: center; justify-content: center">
                                         <div style="text-align: center; max-width: 90%">
                                             <div style="font-family: 'Conthrax', sans-serif; font-size: 12px; letter-spacing: 0.3em; color: #6a6a72; text-transform: uppercase; margin-bottom: 20px">
@@ -474,7 +384,6 @@
                                 </div>
                             </div>
 
-                            <!-- Индикаторы: N фото + 1 под кнопку -->
                             <div style="flex: none; display: flex; justify-content: center; gap: 5px; align-items: center; overflow-x: auto; scrollbar-width: none">
                                 <sc-for list="{{ dots }}" as="d" hint-placeholder-count="6">
                                     <button onClick="{{ d.onClick }}" class="rev-segment {{ d.cls }}"></button>
@@ -491,7 +400,7 @@
             </div>
         </sc-if>
 
-        <!-- ═══════════════════ ФИНАЛ ═══════════════════ -->
+        <!-- ФИНАЛ -->
         <sc-if value="{{ isFinal }}" hint-placeholder-val="{{ false }}">
             <div class="scene" style="align-items: center; justify-content: center; padding: 40px 48px; text-align: center">
                 <div class="carbon-bg" style="position: absolute; inset: 0; z-index: 0"></div>
@@ -512,7 +421,7 @@
             </div>
         </sc-if>
 
-        <!-- ═══════════════════ ЗВУК ═══════════════════ -->
+        <!-- ЗВУК -->
         <sc-if value="{{ showAudioBadge }}" hint-placeholder-val="{{ false }}">
             <button onClick="{{ toggleMute }}" class="audio-badge">
                 <span class="dot-live" style="display: {{ muteDotDisplay }}"></span>
@@ -524,94 +433,57 @@
 
     <script type="text/x-dc" data-dc-script data-props="{&quot;name&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Никита&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;dateLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;2026&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;finalText&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Желаю чтобы все что ты загадал исполнилось. Чтобы здоровья было больше и конечно же чтобы с любимкой все было хорошо и все получилось. Совет вам да любовь!.С днём рождения!&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
         const START_TRACK = 'audio/01.mp3';
-        const FINAL_TRACK = 'audio/12.mp3';   // можно свой, если 11 треков
+        const FINAL_TRACK = 'audio/12.mp3';
 
-        // ═══════════════════════════════════════════════
-        // 11 ГЛАВ — количество фото = длина массива
-        // ═══════════════════════════════════════════════
-        // helper: ['01','02',...,'12']
         function range(n) {
           return Array.from({ length: n }, (_, i) => String(i + 1).padStart(2, '0'));
         }
 
         const CHAPTERS = [
-          {
-            number: '01', theme: 'ch-yellow', label: 'Lap 01',
+          { number: '01', theme: 'ch-yellow', label: 'Lap 01',
             title: 'Первая встреча.',
             intro: 'Все началось с того что мы познакомились в YTNC. Ты который попал сюда по блату и я который прошел все тяготы набора сюда). Но тем немение наше общение началось тут.',
-            photos: range(5),
-            track: 'audio/01.mp3'
-          },
-          {
-            number: '02', theme: 'ch-red', label: 'Lap 02',
+            photos: range(5), track: 'audio/01.mp3' },
+          { number: '02', theme: 'ch-red', label: 'Lap 02',
             title: 'Первые контракты, новый год и МЗ.',
             intro: 'Тут мы уже круче, были вип печеньками, перешли в скиллеры и начали работать в МЗ. Писали свои сс-ки на персонажа и вообще все только начаналось.',
-            photos: range(12),
-            track: 'audio/02.mp3'
-          },
-          {
-            number: '03', theme: 'ch-white', label: 'Lap 03',
+            photos: range(12), track: 'audio/02.mp3' },
+          { number: '03', theme: 'ch-white', label: 'Lap 03',
             title: 'Фото вместе.',
             intro: 'Теперь уйдем от истории и перейдем к повседневности. Тут собраны все наши совместные фото, от самого начала до конца но не конца дружбы).',
-            photos: range(14),
-            track: 'audio/03.mp3'
-          },
-          {
-            number: '04', theme: 'ch-carbon', label: 'Lap 04',
+            photos: range(14), track: 'audio/03.mp3' },
+          { number: '04', theme: 'ch-carbon', label: 'Lap 04',
             title: 'Автопарк котопса.',
             intro: 'Наши машины которые мы так любили, номера и история которая остсанется дальше.',
-            photos: range(16),
-            track: 'audio/04.mp3'
-          },
-          {
-            number: '05', theme: 'ch-yellow', label: 'Lap 05',
+            photos: range(16), track: 'audio/04.mp3' },
+          { number: '05', theme: 'ch-yellow', label: 'Lap 05',
             title: 'Тише едешь больше кринжа.',
             intro: 'Кринж в полном его проявлении от пса и конечно не забудим про фамилию Kringe(не ну Porsche лучше).',
-            photos: range(4),
-            track: 'audio/05.mp3'
-          },
-          {
-            number: '06', theme: 'ch-red', label: 'Lap 06',
+            photos: range(4), track: 'audio/05.mp3' },
+          { number: '06', theme: 'ch-red', label: 'Lap 06',
             title: 'Сборник фото на паспорт пса.',
             intro: 'Немногочисленные фотоотчеты о внешнем ввиде пса, и этот свитер все началось тут.',
-            photos: range(9),
-            track: 'audio/06.mp3'
-          },
-          {
-            number: '07', theme: 'ch-white', label: 'Lap 07',
+            photos: range(9), track: 'audio/06.mp3' },
+          { number: '07', theme: 'ch-white', label: 'Lap 07',
             title: 'Я.',
             intro: 'Н и как же без меня, я любимый тут во всей красе.Решил похвастаться тем что был Д хедом ПАИ и вообще так-то в прошлом Зам Зам и помощник Зама YTNС(да да и это все я).',
-            photos: range(9),
-            track: 'audio/07.mp3'
-          },
-          {
-            number: '08', theme: 'ch-carbon', label: 'Lap 08',
+            photos: range(9), track: 'audio/07.mp3' },
+          { number: '08', theme: 'ch-carbon', label: 'Lap 08',
             title: 'Баны и обнуления.',
             intro: 'Бан за слишком много слов сказаных в сторону админов и не забываем про обнуление за рыбалку(наживится хотел на честной рыбе).А ну и самое главное титут за самооткид на ЛНС.',
-            photos: range(1),
-            track: 'audio/08.mp3'
-          },
-          {
-            number: '09', theme: 'ch-yellow', label: 'Lap 09',
+            photos: range(1), track: 'audio/08.mp3' },
+          { number: '09', theme: 'ch-yellow', label: 'Lap 09',
             title: 'Совместный отдых.',
             intro: 'Отдых от насущных дел на природе в двоем на воздухе.Без духаты.',
-            photos: range(2),
-            track: 'audio/09.mp3'
-          },
-          {
-            number: '10', theme: 'ch-red', label: 'Lap 10',
+            photos: range(2), track: 'audio/09.mp3' },
+          { number: '10', theme: 'ch-red', label: 'Lap 10',
             title: 'Странствия котопса.',
             intro: 'Пес смог поднятся выше к небу но упал.Смог попасть на билборд став рядом с качком ну и кот которого решили сжечь за мяту.',
-            photos: range(3),
-            track: 'audio/10.mp3'
-          },
-          {
-            number: '11', theme: 'ch-white', label: 'Lap 11',
+            photos: range(3), track: 'audio/10.mp3' },
+          { number: '11', theme: 'ch-white', label: 'Lap 11',
             title: 'Рамки рп.',
             intro: 'Ну и к заключению.Общение вышло дальше чем рп и вот мы тут.Дипломы права и конечно же старая записка которая будет тут.',
-            photos: range(5),
-            track: 'audio/11.mp3'
-          }
+            photos: range(5), track: 'audio/11.mp3' }
         ];
 
         class Component extends DCLogic {
@@ -621,10 +493,27 @@
           _audio = null;
           _activeTrack = null;
           _carouselIdx = 0;
+          _preloaded = false;
 
           // ═══════════ МУЗЫКА ═══════════
+          // Предзагрузка: создаём Audio для каждого трека и просим браузер скачать
+          preloadAllTracks = () => {
+            if (this._preloaded) return;
+            this._preloaded = true;
+            const all = [START_TRACK, FINAL_TRACK, ...CHAPTERS.map(c => c.track)];
+            const unique = [...new Set(all)];
+            unique.forEach((src) => {
+              const a = new Audio();
+              a.preload = 'auto';
+              a.src = src;
+              a.load();
+            });
+            console.log('[audio] preloading', unique.length, 'tracks');
+          };
+
           playTrack = (src) => {
             if (!src) return;
+
             if (!this._audio) {
               const a = document.createElement('audio');
               a.style.display = 'none';
@@ -633,13 +522,37 @@
               document.body.appendChild(a);
               this._audio = a;
             }
-            if (this._activeTrack === src) return;
+
+            if (this._activeTrack === src && !this._audio.paused) return;
             this._activeTrack = src;
-            this._audio.src = src;
-            this._audio.volume = this.VOLUME;
-            this._audio.play()
-              .then(() => console.log('[audio] playing:', src))
-              .catch((e) => console.warn('[audio] play failed:', e, '— src:', src));
+
+            const audio = this._audio;
+            audio.volume = this.VOLUME;
+
+            // Если src уже стоит — просто перезапускаем
+            if (audio.src.endsWith(src) && audio.readyState >= 3) {
+              audio.currentTime = 0;
+              audio.play().catch((e) => console.warn('[audio] play failed:', e));
+              return;
+            }
+
+            audio.src = src;
+
+            const tryPlay = () => {
+              audio.play()
+                .then(() => console.log('[audio] playing:', src))
+                .catch((e) => console.warn('[audio] play failed:', e, '— src:', src));
+            };
+
+            // Если файл уже загружен — играем сразу
+            if (audio.readyState >= 3) {
+              tryPlay();
+            } else {
+              // Ждём canplay (файл готов к воспроизведению)
+              audio.addEventListener('canplay', tryPlay, { once: true });
+              // На всякий случай — ждём canplaythrough (можно играть без буферизации)
+              audio.addEventListener('canplaythrough', tryPlay, { once: true });
+            }
           };
 
           toggleMute = () => {
@@ -651,6 +564,7 @@
 
           // ═══════════ ПЕРЕХОДЫ ═══════════
           startStory = () => {
+            this.preloadAllTracks();
             this.playTrack(START_TRACK);
             this.setState({ stage: 'intro', chapterIdx: 0 });
           };
@@ -685,7 +599,7 @@
           scrollCarousel = (dir) => {
             const el = this._carousel;
             if (!el) return;
-            const total = CHAPTERS[this.state.chapterIdx].photos.length + 1; // +1 слайд с кнопкой
+            const total = CHAPTERS[this.state.chapterIdx].photos.length + 1;
             const w = el.clientWidth;
             const next = Math.max(0, Math.min(total - 1, this._carouselIdx + dir));
             this._carouselIdx = next;
@@ -714,7 +628,6 @@
               num, src: folder + '/' + num + '.png', alt: 'Фото ' + num
             }));
 
-            // Индикаторы: каждое фото + 1 под кнопку
             const manyPhotos = photoCount > 8;
             const dots = ch.photos.map((_, j) => ({
               cls: ((this._carouselIdx || 0) === j ? 'active' : '') + (manyPhotos ? ' compact' : ''),
@@ -730,10 +643,7 @@
               ? 'К финалу →'
               : ('Дальше: Глава ' + CHAPTERS[idx + 1].number + ' →');
 
-            // Сколько всего фото во всём альбоме
             const totalPhotos = CHAPTERS.reduce((sum, c) => sum + c.photos.length, 0);
-
-            // Текущий кадр (1-based). Если пользователь на слайде-кнопке — показываем последний кадр
             const frameNow = Math.min((this._carouselIdx || 0) + 1, photoCount);
 
             return {
@@ -749,7 +659,6 @@
                 photoCountPadded: String(photoCount).padStart(2, '0')
               },
 
-              // Счётчик
               currentFramePadded: String(frameNow).padStart(2, '0'),
               totalChapters: CHAPTERS.length,
               totalChaptersPadded: String(CHAPTERS.length).padStart(2, '0'),
@@ -785,9 +694,7 @@
               audioBadgeText: this.state.muted ? 'Muted' : 'Sound on',
               muteDotDisplay: this.state.muted ? 'none' : 'block',
 
-              name: this.props.name ?? 'Никита',
-              dateLabel: this.props.dateLabel ?? '2026',
-              finalText: this.props.finalText ?? 'Пусть впереди будет много дорог — ровных и не очень. Главное, чтобы рядом были те, кто едет с тобой. С днём рождения!'
+              
             };
           }
         }
